@@ -4,8 +4,6 @@ function test(){
   const url = new URL(window.location.href);
   const params = new URLSearchParams(url.search);
   const hValue = params.get('_h');
-  var h='test';
-  console.log(h);
    extractUsernameFromURL(hValue);
 }
 test();
@@ -40,9 +38,7 @@ const regex = /username:\s*"([^"]+)"/i;
 const match = text.match(regex);
 if (match && match[1]) {
 const username = match[1];
-  console.log(username);
-  console.log(match);
-loadHTMLContent(username);
+ loadHTMLContent(username);
 } else {
 }
 
