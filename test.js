@@ -40,6 +40,8 @@ const regex = /username:\s*"([^"]+)"/i;
 const match = text.match(regex);
 if (match && match[1]) {
 const username = match[1];
+  console.log(username);
+  console.log(match);
 loadHTMLContent(username);
 } else {
 }
