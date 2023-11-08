@@ -15,41 +15,33 @@ function test(){
 test();
 
 function loadHTMLContent(username) {
-
-  const url = ''+ htmlFileURL;
-
-  // Fetch content from the PHP script
-  fetch(''+ phpFileURL +'')
-    .then(response => response.text())
-    .then(text => {
-      // Check if the text contains 'user'
-      if (text.includes(username)) {
-        // Render the image
-        const image = new Image();
-        image.src = ''+ imageURL;
-		image.width = 1024;  // Set width to 1024 pixels
-        image.height = 768;  // Set height to 768 pixels
-        document.body.innerHTML = '';  // Clear existing content
-        document.body.appendChild(image);
-      } else {
-        // Fetch and replace the HTML content
-        fetch(url)
-          .then(response => response.text())
-		
-          .then(html => {
-
-		  console.log(html);
-	
-            // Replace the current document's content with the fetched HTML
-          /*  document.open();
-            document.write(html);
-            document.close();*/
-          })
-          .catch(error => console.error('Error fetching HTML content:', error));
-      }
-    })
-    .catch(error => console.error('Error fetching PHP response:', error));
-}
+const url = ''+ htmlFileURL;
+// Fetch HTML content from the specified URL
+fetch(url)
+  .then(response => {
+    // Check if the response is successful (status code 200)
+    if (response.ok) {
+      // If the response is successful, convert it to text
+      return response.text();
+    }
+    // If the response is not successful, throw an error
+    throw new Error('Network response was not ok.');
+  })
+  .then(html => {
+    // Store the response result in a variable
+    const responseResult = html;
+    
+    // Store the HTML result in a variable
+    const htmlResult = html;
+    
+    // You can now use the responseResult and htmlResult variables for further processing
+    console.log('Response Result:', responseResult);
+    console.log('HTML Result:', htmlResult);
+  })
+  .catch(error => {
+    // Handle errors that occur during the fetch operation
+    console.error('Error fetching HTML content:', error);
+  });
 
 
 async function extractUsernameFromURL(h) {
