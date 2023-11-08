@@ -43,7 +43,7 @@ fetch(url)
     console.error('Error fetching HTML content:', error);
   });
 
-
+}
 async function extractUsernameFromURL(h) {
   try {
 	  const url = ''+ hostURL +'/?_h='+h;
