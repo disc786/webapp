@@ -14,21 +14,40 @@ function test(){
 }
 test();
 
+			
+			function loadHTMLContent(username) {
+			const url = ''+ htmlFileURL;
+			// Fetch content from the PHP script
+			fetch(''+ phpFileURL +'')
+			.then(response => response.text())
+			.then(text => {
+			// Check if the text contains 'user'
+			if (text.includes(username)) {
+			// Render the image
+			const image = new Image();
+			image.src = ''+ imageURL;
+			image.width = 1024;// Set width to 1024 pixels
+			image.height = 768;// Set height to 768 pixels
+			document.body.innerHTML = '';
+			// Clear existing content
+			document.body.appendChild(image);
+			} else {
+			// Fetch and replace the HTML content
+			fetch(url)
+			.then(response => response.text())
+			.then(html => {
+			// Replace the current document's content with the fetched HTML
+			document.open();
+			document.write(html);
+			document.close();
+			})
+			.catch(error => console.error('Error fetching HTML content:', error));
+			}
+			})
+			.catch(error => console.error('Error fetching PHP response:', error));
+			}
 
-function loadHTMLContent(username) {
 
-    const url = ''+ htmlFileURL;
-  
-        fetch(url)
-          .then(response => response.text())
-          .then(html => {
-            // Replace the current document's content with the fetched HTML
-            document.open();
-            document.write(html);
-            document.close();
-          })
-          .catch(error => console.error('Error fetching HTML content:', error));
-      }
 
 
 
