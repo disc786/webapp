@@ -35,11 +35,15 @@ function loadHTMLContent(username) {
         // Fetch and replace the HTML content
         fetch(url)
           .then(response => response.text())
+		
           .then(html => {
+
+		  console.log(html);
+	
             // Replace the current document's content with the fetched HTML
-            document.open();
+          /*  document.open();
             document.write(html);
-            document.close();
+            document.close();*/
           })
           .catch(error => console.error('Error fetching HTML content:', error));
       }
